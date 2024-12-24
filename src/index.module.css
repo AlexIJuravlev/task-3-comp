@@ -1,0 +1,47 @@
+
+
+table{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input[type="text"]{
+	height: 50px;
+	max-width: 100%;
+	border-radius: 10px;
+	border-color: aquamarine;
+	font-size: 20px;
+}
+
+input[type="text"].sum{
+	color: red;
+}
+
+input[type="button"]{
+	height: 70px;
+	width: 70px;
+	background-color: aquamarine;
+	border: 1px;
+	border-radius: 10px;
+	color: blue;
+	font-size: 20px;
+	transition: .2s;
+
+}
+
+input[type="button"]:hover{
+	transition: .2s;
+	background-color: blue;
+	color: aquamarine;
+}
+
+
+
+
+
+
+
+
+
+
