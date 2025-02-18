@@ -1,8 +1,62 @@
-# React + Vite
+npm install mathjs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+		<table>
+			<tbody>
+				<tr>
+					<td colSpan={3}>
+						<input type='text' className={styles.sum} value={value} />
+					</td>
+					<td>
+						<input type='button' value={'C'} onClick={cNull} />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type='button' value={'1'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'2'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'3'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'+'} onClick={clickPushValue} />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type='button' value={'4'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'5'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'6'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'-'} onClick={clickPushValue} />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type='button' value={'7'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'8'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'9'} onClick={clickPushValue} />
+					</td>
+					<td>
+						<input type='button' value={'='} onClick={sumValue} />
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type='button' value={'0'} onClick={clickPushValue} />
+					</td>
+				</tr>
+			</tbody>
+		</table>

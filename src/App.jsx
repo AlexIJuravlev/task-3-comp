@@ -1,78 +1,113 @@
-import { useState } from "react";
-import styles from "./index.module.css"
-
+import { useState } from 'react';
+import styles from './index.module.css';
 
 export const App = () => {
-	const [value, setValue] = useState('');
+	const [operand1, setOperand1] = useState('0');
+	const [operator, setOperator] = useState('');
+	const [operand2, setOperand2] = useState('');
+	const [isResult, setIsResult] = useState(false)
 
-	function cNull(){
-		setValue('');
-	}
+	const NUMS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
-const clickPushValue = (e) => setValue(value + e.target.value);
-const sumValue = () => setValue(eval(value))
-
+	const output = operand1 + operator + operand2;
 
 	return (
-		<table>
-			<tbody>
-				<tr>
-					<td colSpan={3}>
-						<input type='text' className={styles.sum} value={value} disabled />
-					</td>
-					<td>
-						<input type='button' value={'C'} onClick={cNull} />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type='button' value={'1'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'2'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'3'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'+'} onClick={clickPushValue} />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type='button' value={'4'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'5'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'6'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'-'} onClick={clickPushValue} />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type='button' value={'7'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'8'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'9'} onClick={clickPushValue} />
-					</td>
-					<td>
-						<input type='button' value={'='} onClick={sumValue} />
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<input type='button' value={'0'} onClick={clickPushValue} />
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div className={styles.table}>
+			<div className={`${isResult ? styles.result : styles.screen}`}>
+				{output}
+			</div>
+			<div className={styles.buttons}>
+				<div className={styles.left}>
+					{NUMS.map((num) => (
+						<button
+							className={styles.btn}
+							onClick={() => {
+								if (operator === '') {
+									if (operand1 === '0') {
+										setOperand1(num);
+									} else {
+										setOperand1(operand1 + num);
+										setIsResult(false);
+
+									}
+								} else {
+									if (operand2 === '0') {
+										setOperand2(num);
+									} else {
+										setOperand2(operand2 + num);
+
+									}
+								}
+							}}
+							key={num}
+						>
+							{num}
+						</button>
+					))}
+				</div>
+				<div className={styles.right}>
+					<button
+						className={styles.btn}
+						onClick={() => {
+							setOperand1('0');
+							setOperand2('');
+							setOperator('');
+							setIsResult(false);
+
+						}}
+					>
+						C
+					</button>
+					<button
+						className={styles.btn}
+						onClick={() => {
+							setOperator('+');
+							setIsResult(false);
+
+						}}
+					>
+						+
+					</button>
+					<button
+						className={styles.btn}
+						onClick={() => {
+							setOperator('-');
+							setIsResult(false);
+
+						}}
+					>
+						-
+					</button>
+					<button
+						className={styles.btn}
+						onClick={() => {
+							if (operand2 === '') {
+								setOperator('');
+								setIsResult(true)
+							} else {
+								switch (operator) {
+									case '+': {
+										setOperand1(Number(operand1) + Number(operand2));
+										break;
+									}
+									case '-': {
+										setOperand1(Number(operand1) - Number(operand2));
+
+										break;
+									}
+
+									default: //ничего
+								}
+								setIsResult(true);
+								setOperator('');
+								setOperand2('');
+							}
+						}}
+					>
+						=
+					</button>
+				</div>
+			</div>
+		</div>
 	);
 };

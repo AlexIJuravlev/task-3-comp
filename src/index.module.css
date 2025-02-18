@@ -1,40 +1,58 @@
 
 
-table{
+.table{
+	text-align: center;
+}
+
+.screen{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-input[type="text"]{
-	height: 50px;
-	max-width: 100%;
+	font-size: 40px;
+	border: 1px solid;
 	border-radius: 10px;
-	border-color: aquamarine;
-	font-size: 20px;
+	margin-bottom: 5px;
 }
 
-input[type="text"].sum{
+.result{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: red;
-}
-
-input[type="button"]{
-	height: 70px;
-	width: 70px;
-	background-color: aquamarine;
-	border: 1px;
+	font-size: 40px;
+	border: 1px solid black;
 	border-radius: 10px;
-	color: blue;
-	font-size: 20px;
-	transition: .2s;
+	margin-bottom: 5px;
+}
+
+
+
+.btn{
+	width: 60px;
+	height: 60px;
+	font-size: 40px;
+	margin: 5px;
+	background-color: black;
+	color: #fff;
 
 }
 
-input[type="button"]:hover{
-	transition: .2s;
-	background-color: blue;
-	color: aquamarine;
+.buttons{
+	display: flex;
+	justify-content: center;
 }
+
+.left{
+	width: 220px;
+}
+
+.right{
+	display: flex;
+	flex-direction: column;
+	margin-left: 30px;
+}
+
+
 
 
 
